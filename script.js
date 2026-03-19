@@ -11,18 +11,23 @@ const countdownValue = document.getElementById('countdownValue')
 
 let currentPage = 0
 const loverName = 'Indah Sujiati'
-const countdownTarget = new Date(2026, 2, 20, 0, 1, 0)
+const countdownTarget = new Date(2026, 2, 20, 0, 0, 0)
 const forceEnableStartButton = true
 let countdownTimer = null
 
 const fixedTrackSrc = '/music/sertamulia.mp3'
+let musicResumeTime = 0
+let isMusicPrimed = false
 
 const bgMusic = document.getElementById('bgMusic')
 const musicToggle = document.getElementById('musicToggle')
 
 function loadTrack() {
-  bgMusic.src = fixedTrackSrc
-  bgMusic.load()
+  if (!isMusicPrimed) {
+    bgMusic.src = fixedTrackSrc
+    bgMusic.load()
+    isMusicPrimed = true
+  }
 }
 
 function updateMusicButton() {
@@ -35,6 +40,15 @@ function updateMusicButton() {
 }
 
 async function safePlayMusic() {
+  if (!isMusicPrimed) {
+    loadTrack()
+  }
+
+  // Restore last known position if browser resets media on interaction/page transitions.
+  if (musicResumeTime > 0 && bgMusic.currentTime === 0 && bgMusic.readyState >= 1) {
+    bgMusic.currentTime = musicResumeTime
+  }
+
   try {
     await bgMusic.play()
   } catch {
@@ -45,6 +59,14 @@ async function safePlayMusic() {
 
 loadTrack()
 bgMusic.volume = 0.45
+
+bgMusic.addEventListener('timeupdate', () => {
+  musicResumeTime = bgMusic.currentTime
+})
+
+bgMusic.addEventListener('seeking', () => {
+  musicResumeTime = bgMusic.currentTime
+})
 
 // Ensure playback starts on first user interaction for browsers that block autoplay.
 window.addEventListener(
@@ -479,7 +501,7 @@ function updateCountdown() {
     countdownValue.textContent = `${formatTimeUnit(days)} : ${formatTimeUnit(hours)} : ${formatTimeUnit(minutes)} : ${formatTimeUnit(seconds)}`
   }
   if (countdownLabel) {
-    countdownLabel.textContent = 'Hitung mundur menuju 20 Maret 2026 00:01'
+    countdownLabel.textContent = 'Hitung mundur menuju 20 Maret 2026'
   }
   if (startBtn) {
     startBtn.disabled = true
