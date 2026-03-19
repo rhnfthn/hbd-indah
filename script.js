@@ -12,7 +12,7 @@ const countdownValue = document.getElementById('countdownValue')
 let currentPage = 0
 const loverName = 'Indah Sujiati'
 const countdownTarget = new Date(2026, 2, 20, 0, 0, 0)
-const forceEnableStartButton = true
+const forceEnableStartButton = false
 let countdownTimer = null
 
 const fixedTrackSrc = '/music/sertamulia.mp3'
