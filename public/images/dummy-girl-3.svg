@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Dummy portrait 3">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8f6ff"/>
+      <stop offset="1" stop-color="#d4ecff"/>
+    </linearGradient>
+    <linearGradient id="hair3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#36564c"/>
+      <stop offset="1" stop-color="#213b34"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#bg3)"/>
+  <circle cx="256" cy="204" r="126" fill="url(#hair3)"/>
+  <circle cx="256" cy="226" r="99" fill="#f6c9bb"/>
+  <path d="M186 220c12-14 36-14 48 0" stroke="#2e443c" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M278 220c12-14 36-14 48 0" stroke="#2e443c" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <circle cx="220" cy="242" r="8" fill="#28453d"/>
+  <circle cx="304" cy="242" r="8" fill="#28453d"/>
+  <path d="M225 296c22 24 60 24 82 0" stroke="#db2777" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M144 424c18-76 74-126 112-126s94 50 112 126" fill="#2da78e"/>
+  <text x="256" y="474" font-family="Verdana, sans-serif" font-size="24" fill="#1f5f4f" text-anchor="middle">DUMMY PHOTO 3</text>
+</svg>

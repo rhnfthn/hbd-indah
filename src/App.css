@@ -1,0 +1,509 @@
+.birthday-page {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card {
+  width: min(820px, 100%);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 252, 241, 0.95),
+    rgba(255, 231, 214, 0.88)
+  );
+  box-shadow: 0 30px 70px rgba(75, 32, 31, 0.18);
+  padding: 50px 38px;
+  text-align: center;
+  animation: card-rise 0.9s ease-out;
+  backdrop-filter: blur(3px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.eyebrow {
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+  color: #9f4e40;
+}
+
+.subtitle {
+  max-width: 52ch;
+  margin: 0 auto 22px;
+  color: #5a3a34;
+}
+
+.subtitle strong {
+  color: #9f1229;
+}
+
+.countdown-card {
+  margin: 18px auto 10px;
+  border-radius: 16px;
+  padding: 14px 12px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(204, 113, 94, 0.22);
+  max-width: 520px;
+}
+
+.countdown-card h2 {
+  margin: 0 0 10px;
+  color: #8d3e33;
+  font-family: var(--heading);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.countdown-grid div {
+  border-radius: 10px;
+  background: rgba(255, 243, 223, 0.9);
+  padding: 8px;
+}
+
+.countdown-grid span {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #9f1229;
+}
+
+.countdown-grid small {
+  display: block;
+  color: #7b3d32;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-size: 0.66rem;
+}
+
+.countdown-reached {
+  color: #9f1229;
+  font-weight: 700;
+}
+
+.info-grid {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.info-card {
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(204, 113, 94, 0.22);
+  padding: 14px 10px;
+}
+
+.info-card h2 {
+  font-family: var(--heading);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+  color: #9a4b3f;
+}
+
+.info-card p {
+  color: #4e2e2c;
+  font-weight: 700;
+}
+
+.info-card.accent {
+  background: linear-gradient(145deg, rgba(255, 239, 189, 0.9), rgba(255, 223, 156, 0.9));
+}
+
+.photo-wrap {
+  margin-top: 20px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dummy-photo {
+  width: 176px;
+  height: 176px;
+  object-fit: cover;
+  border-radius: 999px;
+  border: 5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 16px 32px rgba(127, 38, 31, 0.2);
+}
+
+.photo-caption {
+  font-size: 0.76rem;
+  color: #8e5b4f;
+}
+
+.photo-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(127, 38, 31, 0.32);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.dot.active {
+  background: #be185d;
+  transform: scale(1.25);
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.wish-button,
+.music-button,
+.letter-button {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font: 700 0.95rem/1 var(--heading);
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wish-button {
+  color: #fff;
+  background: linear-gradient(135deg, #ef4444, #f59e0b);
+  box-shadow: 0 12px 28px rgba(239, 68, 68, 0.32);
+}
+
+.wish-button:hover,
+.music-button:hover,
+.letter-button:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.wish-button:active,
+.music-button:active,
+.letter-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.wish-button.pulse {
+  animation: pulse 0.6s ease;
+}
+
+.music-button {
+  color: #6b2d1f;
+  background: #fff3df;
+  box-shadow: 0 12px 24px rgba(167, 99, 52, 0.24);
+}
+
+.music-button.on {
+  background: #ffe4b8;
+}
+
+.letter-button {
+  color: #fff;
+  background: linear-gradient(135deg, #db2777, #be185d);
+  box-shadow: 0 12px 24px rgba(190, 24, 93, 0.22);
+}
+
+.letter-button.open {
+  background: linear-gradient(135deg, #8b1f4f, #6b183d);
+}
+
+.letter-box {
+  margin: 20px auto 0;
+  max-width: 58ch;
+  border-radius: 14px;
+  padding: 14px 16px;
+  border: 1px dashed rgba(122, 44, 58, 0.38);
+  background: rgba(255, 252, 245, 0.85);
+  animation: card-rise 0.45s ease;
+}
+
+.note {
+  margin-top: 18px;
+  font-size: 0.82rem;
+  color: #7c4d3f;
+}
+
+.page-nav {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.nav-button {
+  border: none;
+  border-radius: 999px;
+  padding: 11px 18px;
+  font: 700 0.86rem/1 var(--heading);
+  background: linear-gradient(135deg, #fb7185, #db2777);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 10px 18px rgba(219, 39, 119, 0.26);
+  transition: transform 0.2s ease;
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+}
+
+.nav-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.nav-button.secondary {
+  background: linear-gradient(135deg, #a16207, #ca8a04);
+  box-shadow: 0 10px 18px rgba(161, 98, 7, 0.24);
+}
+
+.page-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.page-dot {
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(124, 77, 63, 0.38);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.page-dot.active {
+  transform: scale(1.28);
+  background: #be185d;
+}
+
+.heart-bursts {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  font-size: 1.3rem;
+  opacity: 0;
+  animation: hearts-up 1.9s ease-out;
+}
+
+.h1 {
+  left: 44%;
+  bottom: 25%;
+}
+
+.h2 {
+  left: 50%;
+  bottom: 23%;
+  animation-delay: 0.08s;
+}
+
+.h3 {
+  left: 56%;
+  bottom: 24%;
+  animation-delay: 0.15s;
+}
+
+.h4 {
+  left: 47%;
+  bottom: 19%;
+  animation-delay: 0.22s;
+}
+
+.h5 {
+  left: 53%;
+  bottom: 18%;
+  animation-delay: 0.27s;
+}
+
+.floating-balloons {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.balloon {
+  position: absolute;
+  bottom: -120px;
+  width: 52px;
+  height: 66px;
+  border-radius: 55% 55% 50% 50%;
+  opacity: 0.82;
+  animation: drift-up 13s linear infinite;
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 64px;
+  width: 1px;
+  height: 78px;
+  background: rgba(124, 77, 63, 0.45);
+}
+
+.b1 {
+  left: 8%;
+  background: #f97316;
+  animation-delay: 0s;
+}
+
+.b2 {
+  left: 28%;
+  background: #fb7185;
+  animation-delay: 2.5s;
+}
+
+.b3 {
+  left: 72%;
+  background: #22c55e;
+  animation-delay: 1.2s;
+}
+
+.b4 {
+  left: 88%;
+  background: #06b6d4;
+  animation-delay: 3.7s;
+}
+
+.glow {
+  position: absolute;
+  width: 360px;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  filter: blur(60px);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.glow-left {
+  background: #fca5a5;
+  top: -80px;
+  left: -70px;
+}
+
+.glow-right {
+  background: #fdba74;
+  right: -100px;
+  bottom: -90px;
+}
+
+@keyframes drift-up {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-55vh) translateX(16px) rotate(4deg);
+  }
+  100% {
+    transform: translateY(-115vh) translateX(-14px) rotate(-5deg);
+  }
+}
+
+@keyframes card-rise {
+  from {
+    transform: translateY(28px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes hearts-up {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.85);
+  }
+  18% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-130px) scale(1.25);
+  }
+}
+
+@media (max-width: 700px) {
+  .birthday-page {
+    padding: 16px;
+  }
+
+  .hero-card {
+    padding: 38px 18px;
+    border-radius: 20px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .countdown-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dummy-photo {
+    width: 146px;
+    height: 146px;
+  }
+
+  .button-row {
+    gap: 10px;
+  }
+
+  .page-nav {
+    flex-direction: column;
+  }
+
+  .nav-button {
+    width: 100%;
+  }
+
+  .wish-button,
+  .music-button,
+  .letter-button {
+    width: 100%;
+    justify-content: center;
+  }
+}

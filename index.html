@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#ffc0cb" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Romantic Birthday Story</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="background-layer" id="backgroundLayer" aria-hidden="true"></div>
+
+    <header class="top-bar">
+      <button id="musicToggle" class="icon-btn" aria-label="Toggle music">🔊</button>
+    </header>
+
+    <audio id="bgMusic" loop preload="auto"></audio>
+
+    <main class="story-shell">
+      <!-- Page 1: Landing -->
+      <section class="story-page active" data-page="0" id="page-landing">
+        <div class="glass-card center-card">
+          <p class="mini">A Romantic Birthday Experience</p>
+          <h1 id="landingTitle">Hai Indahhh, aku punya sesuatu yang  spesial buat kamu</h1>
+          <p class="subtitle">Sebuah cerita kecil penuh cinta, khusus untukmu.</p>
+          <div class="countdown-card" id="countdownCard">
+            <p class="countdown-label" id="countdownLabel">Hitung mundur menuju 20 Maret 2026 00:01</p>
+            <p class="countdown-value" id="countdownValue">-- : -- : -- : --</p>
+          </div>
+          <button id="startBtn" class="primary-btn" data-next disabled>Buka saat waktunya tiba</button>
+        </div>
+      </section>
+
+      <!-- Page 2: Romantic message -->
+      <section class="story-page" data-page="1" id="page-message">
+        <div class="glass-card message-card">
+          <p class="mini">Untuk Kamu</p>
+          <h2>Pesan Dari Hati</h2>
+          <p id="typedText" class="typed-text"></p>
+          <div class="nav-row">
+            <button class="primary-btn" data-next>Tiup Lilin</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page 3: Gallery -->
+      <section class="story-page" data-page="2" id="page-gallery">
+        <div class="glass-card gallery-card">
+          <p class="mini">Kenangan</p>
+          <h2>Galeri Cerita Kita</h2>
+          <div class="carousel" id="carousel">
+            <button class="icon-btn side" id="prevSlide" aria-label="Foto sebelumnya">❮</button>
+            <figure class="slide-frame">
+              <img id="slideImage" src="/images/indah1.jpeg" alt="Kenangan romantis" />
+              <figcaption id="slideCaption"></figcaption>
+            </figure>
+            <button class="icon-btn side" id="nextSlide" aria-label="Foto berikutnya">❯</button>
+          </div>
+          <button class="primary-btn" data-next>Masih ada lagi loh </button>
+        </div>
+      </section>
+
+      <!-- Page 4: Surprise -->
+      <section class="story-page" data-page="3" id="page-surprise">
+        <div class="glass-card surprise-card">
+          <p class="mini">Surprise Time</p>
+          <p class="surprise-prompt-text">Klik di mana saja untuk melanjutkan</p>
+        </div>
+      </section>
+
+      <!-- Page 5: Birthday cake -->
+      <section class="story-page" data-page="4" id="page-cake">
+        <div class="glass-card cake-card">
+          <p class="mini">Birthday Moment</p>
+          <h2>Tiup lilinnya ya </h2>
+          <div class="cake-wrap" id="cakeWrap">
+            <div class="cake-stars" aria-hidden="true">
+              <span class="star star-1">★</span>
+              <span class="star star-2">★</span>
+              <span class="star star-3">★</span>
+            </div>
+            <div class="candle" id="candle">
+              <span class="flame" id="flame"></span>
+            </div>
+            <div class="cake-top">
+              <span class="sprinkle s1"></span>
+              <span class="sprinkle s2"></span>
+              <span class="sprinkle s3"></span>
+              <span class="sprinkle s4"></span>
+              <span class="sprinkle s5"></span>
+            </div>
+            <div class="cake-body">
+              <span class="drip d1"></span>
+              <span class="drip d2"></span>
+              <span class="drip d3"></span>
+              <span class="drip d4"></span>
+            </div>
+            <div class="cake-ribbon"></div>
+            <div class="cake-base"></div>
+            <div class="cake-plate"></div>
+          </div>
+          <p id="wishText" class="wish-text">Klik lilin untuk meniup api dan buat harapan.</p>
+          <div class="nav-row">
+            <button class="primary-btn" data-next>Lihat Surprise Video</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page 6: Surprise Video (Last Page) -->
+      <section class="story-page" data-page="5" id="page-video">
+        <div class="glass-card surprise-card">
+          <p class="mini">Surprise Video</p>
+          <div class="surprise-stage">
+            <video id="surpriseVideo" class="surprise-video" loop playsinline muted autoplay preload="metadata">
+              <source src="/video/indah.mp4" type="video/mp4" />
+            </video>
+            <button id="videoNoteToggle" class="video-note-toggle" type="button" aria-label="Buka catatan">✉</button>
+            <aside id="videoNoteCard" class="video-note-card hidden" aria-live="polite">
+              <h3>Untuk Indah</h3>
+              <p>
+                Selamat ulang tahun yang ke-23 ya, sayang ❤️
+                Panjang umur dan selalu sehat. semoga diumur kamu yang sekarang kamu bisa mendapatkan semua keinginan kamu yang tertunda, dilancarkan semua rencananya dan dimudahkan semua usahanya
+              </p>
+            </aside>
+          </div>
+          <div class="nav-row">
+            <button id="restartBtn" class="primary-btn" type="button">Ulang dari awal 🔄</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
